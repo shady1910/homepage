@@ -38,6 +38,12 @@
     line-height: 1.75;
 }
 
+.residence-comfort__item i {
+    font-size: 2.125rem;
+    margin-right: 15px;
+    color: #978667;
+}
+
 .room-gallery-section .title {
     margin-bottom: 45px;
 }
