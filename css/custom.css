@@ -1,3 +1,128 @@
 /*============================================================================================*/
 /* Your custom styles below */
 /*============================================================================================*/
+
+.room-gallery-section .title {
+    margin-bottom: 45px;
+}
+
+.room-gallery {
+    column-count: 3;
+    column-gap: 18px;
+}
+
+.room-gallery__item {
+    display: block;
+    width: 100%;
+    margin: 0 0 18px;
+    padding: 0;
+    overflow: hidden;
+    break-inside: avoid;
+    border: 0;
+    border-radius: 3px;
+    background: #eeeae3;
+    cursor: zoom-in;
+}
+
+.room-gallery__item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.room-gallery__item:hover img,
+.room-gallery__item:focus-visible img {
+    transform: scale(1.025);
+    opacity: 0.9;
+}
+
+.room-gallery__item:focus-visible {
+    outline: 3px solid #978667;
+    outline-offset: 3px;
+}
+
+.room-lightbox {
+    width: auto;
+    max-width: none;
+    margin: auto;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+}
+
+.room-lightbox::backdrop {
+    background: rgba(16, 15, 13, 0.92);
+    backdrop-filter: blur(3px);
+}
+
+.room-lightbox__image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: calc(100vw - 48px);
+    max-height: calc(100vh - 48px);
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.room-lightbox__close {
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    right: 10px;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(16, 15, 13, 0.75);
+    color: #fff;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.room-lightbox__close:hover,
+.room-lightbox__close:focus-visible {
+    background: #978667;
+}
+
+body.room-lightbox-open {
+    overflow: hidden;
+}
+
+@media (max-width: 991px) {
+    .room-gallery {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 575px) {
+    .room-gallery-section .title {
+        margin-bottom: 30px;
+    }
+
+    .room-gallery {
+        column-count: 1;
+        column-gap: 12px;
+    }
+
+    .room-gallery__item {
+        margin-bottom: 12px;
+    }
+
+    .room-lightbox__image {
+        max-width: calc(100vw - 24px);
+        max-height: calc(100vh - 24px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .room-gallery__item img {
+        transition: none;
+    }
+}
