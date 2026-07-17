@@ -1419,3 +1419,82 @@ textarea.form-control {
   margin-right: 15px;
   color: #978667;
 }
+
+/*-------- 2.3 Room list --------*/
+.box_item_info {
+  background-color: #fff;
+  z-index: 9;
+  position: relative;
+  padding: 40px 40px 20px 40px;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+}
+.box_item_info small {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: #978667;
+}
+.box_item_info h2 {
+  font-size: 30px;
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.box_item_info .facilities ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+.box_item_info .facilities ul li {
+  float: left;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  margin: 0 25px 10px 0;
+}
+.box_item_info .facilities ul li:last-child {
+  margin: 0;
+}
+.box_item_info .facilities ul li i {
+  height: 36px;
+  font-size: 30px;
+  font-size: 1.875rem;
+  color: #978667;
+  margin-right: 15px;
+}
+@media (max-width: 767px) {
+  .box_item_info .facilities ul li {
+    float: none;
+    width: 100%;
+  }
+}
+.box_item_info .box_item_footer {
+  border-top: 2px solid #ededed;
+  margin-top: 15px;
+  padding: 25px 0 15px 0;
+}
+.box_item_info .box_item_footer a.animated_link {
+  color: #333;
+}
+
+.row_list_version_1 {
+  margin-bottom: 60px;
+}
+.row_list_version_1 .box_item_info {
+  max-width: 750px;
+  margin: -250px 60px 60px 60px;
+}
+@media (max-width: 767px) {
+  .row_list_version_1 .box_item_info {
+    margin: -150px 10px 0 10px;
+    padding: 20px 25px 10px 25px;
+  }
+}
+
+.pinned-image.rounded_container {
+    border-radius: 15px;
+}
