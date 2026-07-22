@@ -217,8 +217,8 @@ a.btn:hover,
 a.btn.outline,
 .btn.outline {
   background-color: transparent;
-  border: 2px solid #24262d;
-  color: #24262d;
+  border: 2px solid #978667;
+  color: #978667;
 }
 a.btn.outline.white,
 .btn.outline.white {
@@ -1227,19 +1227,23 @@ a.box_cat_rooms:hover .background-image {
   top: 50%;
   transform: translate3d(-50%, -50%, 0);
 }
-@media (max-width: 767px) {
-  .pinned_over_content {
-    padding: 0 15px;
-  }
-}
 
 .pinned_over_content h2 {
   color: #fff;
-  font-size: 52px;
   font-size: 3.25rem;
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.2;
+}
+
+@media (max-width: 767px) {
+  .pinned_over_content {
+    padding: 0 15px;
+
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
 }
 
 .parallax_wrapper {
@@ -1497,4 +1501,12 @@ textarea.form-control {
 
 .pinned-image.rounded_container {
     border-radius: 15px;
+}
+
+.pinned-image--medium {
+  height: 75vh;
+}
+
+.pinned-image--small {
+  height: 45vh;
 }
