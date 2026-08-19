@@ -133,8 +133,137 @@
     background: #978667;
 }
 
+.room-lightbox__navigation {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    place-items: center;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: 50%;
+    background: rgba(16, 15, 13, 0.75);
+    color: #fff;
+    font-size: 38px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.room-lightbox__previous {
+    left: 12px;
+}
+
+.room-lightbox__next {
+    right: 12px;
+}
+
+.room-lightbox__navigation:hover,
+.room-lightbox__navigation:focus-visible {
+    background: #978667;
+}
+
 body.room-lightbox-open {
     overflow: hidden;
+}
+
+.room-feature-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.room-feature-image .item,
+.room-feature-image a,
+.room-feature-image img {
+    display: block;
+    width: 100%;
+}
+
+.room-feature-image img {
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.room-feature-image a:hover img,
+.room-feature-image a:focus-visible img {
+    transform: scale(1.025);
+}
+
+.pinned-image__container {
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pinned-image.is-visible .pinned-image__container {
+    transform: scale(1.05);
+}
+
+.pinned_over_content {
+    opacity: 0;
+    transition: opacity 0.8s ease 0.2s;
+}
+
+.pinned-image.is-visible .pinned_over_content {
+    opacity: 1;
+}
+
+.hero.jarallax {
+    overflow: hidden;
+}
+
+.jarallax > .jarallax-img {
+    top: -10%;
+    height: 120%;
+    will-change: transform;
+}
+
+[data-jarallax-element] {
+    will-change: transform;
+}
+
+.footer_links li {
+    transition: opacity 0.3s ease;
+}
+
+.footer_links ul:hover li {
+    opacity: 0.6;
+}
+
+.footer_links ul li:hover {
+    opacity: 1;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+@media (min-width: 992px) {
+    .fixed_title {
+        position: sticky;
+        top: 120px;
+        align-self: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    body.footer-reveal-enabled main {
+        position: relative;
+        z-index: 2;
+        margin-bottom: var(--footer-height);
+        background: #fff;
+    }
+
+    body.footer-reveal-enabled footer.revealed {
+        position: fixed;
+        z-index: 1;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
 }
 
 @media (max-width: 991px) {
@@ -170,10 +299,42 @@ body.room-lightbox-open {
         max-width: calc(100vw - 24px);
         max-height: calc(100vh - 24px);
     }
+
+    .room-lightbox__navigation {
+        width: 42px;
+        height: 42px;
+    }
+
+    .room-lightbox__previous {
+        left: 6px;
+    }
+
+    .room-lightbox__next {
+        right: 6px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .room-gallery__item img {
+    .room-gallery__item img,
+    .room-feature-image img,
+    .pinned-image__container,
+    .pinned_over_content,
+    .footer_links li {
         transition: none;
+    }
+
+    .pinned-image__container,
+    .pinned-image.is-visible .pinned-image__container {
+        transform: scale(1);
+    }
+
+    .pinned_over_content {
+        opacity: 1;
+    }
+
+    .jarallax > .jarallax-img,
+    [data-jarallax-element] {
+        transform: none !important;
+        will-change: auto;
     }
 }
