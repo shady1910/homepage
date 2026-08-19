@@ -40,7 +40,7 @@
 	<link href="css/vendors.min.css" rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
-    <link href="css/custom.css" rel="stylesheet">
+	<link href="css/custom.css?v=20260819" rel="stylesheet">
 </head>
 
 <body> 
@@ -144,9 +144,9 @@
                 <div class="row_list_version_2">
                     <div class="row g-0 align-items-center">
                         <div class="col-xl-8">
-                            <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
+                            <div class="room-feature-image kenburns rounded-img">
                                 <div class="item">
-                                    <a data-fslightbox="gallery_1" data-type="image" href="img/rooms/bedroom2.jpg"
+                                    <a class="room-feature-lightbox" href="img/rooms/bedroom2.jpg"
                                         ><img src="img/rooms/bedroom2.jpg" alt="Schlafzimmer mit Kingsize-Bett und direktem Zugang zur Terrasse"
                                     /></a>
                                 </div>
@@ -172,9 +172,9 @@
                 <div class="row_list_version_2 inverted">
                     <div class="row g-0 align-items-center">
                         <div class="col-xl-8 order-xl-2">
-                            <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
+                            <div class="room-feature-image kenburns rounded-img">
                                 <div class="item">
-                                    <a data-fslightbox="gallery_2" data-type="image" href="img/rooms/2.jpg"
+                                    <a class="room-feature-lightbox" href="img/rooms/2.jpg"
                                         ><img src="img/rooms/2.jpg" alt="Schlafzimmer mit Blick ins Grüne und Kingsize-Bett"
                                     /></a>
                                 </div>
@@ -211,9 +211,9 @@
                 <div class="row_list_version_2">
                     <div class="row g-0 align-items-center">
                         <div class="col-xl-8">
-                            <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
+                            <div class="room-feature-image kenburns rounded-img">
                                 <div class="item">
-                                    <a data-fslightbox="gallery_1" data-type="image" href="img/rooms/3.jpg"
+                                    <a class="room-feature-lightbox" href="img/rooms/3.jpg"
                                         ><img src="img/rooms/3.jpg" alt="Offene Küche und Essbereich mit Zugang zur Terrasse"
                                     /></a>
                                 </div>
@@ -244,9 +244,9 @@
                 <div class="row_list_version_2">
                     <div class="row g-0 align-items-center">
                         <div class="col-xl-8">
-                            <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
+                            <div class="room-feature-image kenburns rounded-img">
                                 <div class="item">
-                                    <a data-fslightbox="gallery_1" data-type="image" href="img/rooms/outdoor_palm.jpeg"
+                                    <a class="room-feature-lightbox" href="img/rooms/outdoor_palm.jpeg"
                                         ><img src="img/rooms/outdoor_palm.jpeg" alt="Privater Poolbereich mit Palmen, Sonnenliegen und Garten"
                                     /></a>
                                 </div>
@@ -266,9 +266,9 @@
                 <div class="row_list_version_2 inverted">
                     <div class="row g-0 align-items-center">
                         <div class="col-xl-8 order-xl-2">
-                            <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
+                            <div class="room-feature-image kenburns rounded-img">
                                 <div class="item">
-                                    <a data-fslightbox="gallery_2" data-type="image" href="img/rooms/outdoor night.jpeg"
+                                    <a class="room-feature-lightbox" href="img/rooms/outdoor night.jpeg"
                                         ><img src="img/rooms/outdoor night.jpeg" alt="Beleuchteter Pool und Terrasse der Casa Sol Férias am Abend"
                                     /></a>
                                 </div>
@@ -404,7 +404,13 @@
         <button class="room-lightbox__close" type="button" aria-label="Bildansicht schließen">
             <span aria-hidden="true">&times;</span>
         </button>
+        <button class="room-lightbox__navigation room-lightbox__previous" type="button" aria-label="Vorheriges Bild">
+            <span aria-hidden="true">&#8249;</span>
+        </button>
         <img class="room-lightbox__image" src="" alt="Vergrößerte Ansicht eines Bildes der Casa Sol Férias">
+        <button class="room-lightbox__navigation room-lightbox__next" type="button" aria-label="Nächstes Bild">
+            <span aria-hidden="true">&#8250;</span>
+        </button>
     </dialog>
 
         <footer class="revealed">
@@ -443,8 +449,7 @@
         </div>
     </footer>
 
-    <script src="js/common_scripts.js"></script>
-    <script src="js/common_functions.js"></script>
-    <script src="js/room-gallery.js"></script>
+    <script src="js/common_functions.js?v=20260819"></script>
+    <script src="js/room-gallery.js?v=20260819"></script>
 </body>
 </html>
