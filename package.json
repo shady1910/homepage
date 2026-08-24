@@ -1,0 +1,14 @@
+{
+    "name": "boenisch-homepage",
+    "private": true,
+    "scripts": {
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "lint:css": "stylelint \"css/**/*.css\""
+    },
+    "devDependencies": {
+        "prettier": "^3.9.6",
+        "stylelint": "^17.14.1",
+        "stylelint-config-recommended": "^18.0.0"
+    }
+}
