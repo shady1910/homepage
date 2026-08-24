@@ -338,3 +338,7 @@ body.menu-open {
         will-change: auto;
     }
 }
+
+.error_page {
+    height: 100vh;
+}
