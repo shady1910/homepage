@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
  * Verhindert, dass fremde Websites deinen Endpoint direkt aus dem Browser nutzen.
  * Trage in config.php deine echte Domain ein.
  */
-$configFile = __DIR__ . '/config.php';
+$configFile = __DIR__ . '/../private/config.php';
 
 if (!is_file($configFile)) {
     respond(500, false, 'Serverkonfiguration fehlt.');
