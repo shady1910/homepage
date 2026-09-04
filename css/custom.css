@@ -318,6 +318,17 @@ body.menu-open {
     }
 }
 
+@media (max-width: 767px) {
+    .hero.jarallax > .jarallax-img {
+        top: 0;
+        height: 100%;
+        transform: none !important;
+        animation: none;
+        transition: none;
+        will-change: auto;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .room-gallery__item img,
     .room-feature-image img,
