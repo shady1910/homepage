@@ -25,7 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 /*
  * Optional, aber sinnvoll:
  * Verhindert, dass fremde Websites deinen Endpoint direkt aus dem Browser nutzen.
- * Trage in config.php deine echte Domain ein.
+ * Trage in config.php deine erlaubten Domains ein.
+ * Beispiel: 'allowed_host' => ['casasolferias.com', 'weitere-domain.de']
  */
 $configFile = __DIR__ . '/../private/config.php';
 
@@ -35,11 +36,21 @@ if (!is_file($configFile)) {
 
 $config = require $configFile;
 
-$allowedHost = (string)($config['allowed_host'] ?? '');
+$configuredAllowedHosts = $config['allowed_host'] ?? [];
+$allowedHosts = is_array($configuredAllowedHosts)
+    ? $configuredAllowedHosts
+    : [$configuredAllowedHosts];
+$allowedHosts = array_values(array_filter(
+    array_map(
+        static fn ($host): string => strtolower(trim((string)$host)),
+        $allowedHosts
+    ),
+    static fn (string $host): bool => $host !== ''
+));
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 $referer = $_SERVER['HTTP_REFERER'] ?? '';
 
-if ($allowedHost !== '') {
+if ($allowedHosts !== []) {
     $allowed = false;
 
     foreach ([$origin, $referer] as $source) {
@@ -48,7 +59,7 @@ if ($allowedHost !== '') {
         }
 
         $host = parse_url($source, PHP_URL_HOST);
-        if (is_string($host) && hash_equals($allowedHost, strtolower($host))) {
+        if (is_string($host) && in_array(strtolower($host), $allowedHosts, true)) {
             $allowed = true;
             break;
         }
