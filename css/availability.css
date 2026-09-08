@@ -1,0 +1,118 @@
+.availability-calendar {
+    margin-bottom: 2rem;
+    min-width: 0;
+}
+
+.availability-calendar > label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.availability-calendar .flatpickr-calendar {
+    width: 100% !important;
+    max-width: 680px;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    box-shadow: none;
+    border: 1px solid #ded8cc;
+    border-radius: 6px;
+    background: #faf8f5;
+    font-family: inherit;
+}
+
+.availability-calendar .flatpickr-innerContainer,
+.availability-calendar .flatpickr-rContainer,
+.availability-calendar .flatpickr-days {
+    width: 100% !important;
+}
+
+.availability-calendar .dayContainer {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    flex: 1;
+}
+
+.availability-calendar .flatpickr-day {
+    max-width: none;
+    color: #263b40;
+    border-radius: 4px;
+}
+
+.availability-calendar .flatpickr-day.flatpickr-disabled {
+    color: #777;
+}
+
+.availability-calendar .flatpickr-day.occupied-night,
+.calendar-legend .occupied-night {
+    background: repeating-linear-gradient(135deg, #e8e2d8, #e8e2d8 3px, #f4f0e9 3px, #f4f0e9 6px);
+    text-decoration: line-through;
+    color: #66584b;
+}
+
+.availability-calendar .flatpickr-day.departure-only {
+    text-decoration: none;
+    border-bottom: 3px solid #978667;
+}
+
+.availability-calendar .flatpickr-day.selected,
+.availability-calendar .flatpickr-day.startRange,
+.availability-calendar .flatpickr-day.endRange,
+.availability-calendar .flatpickr-day.selected-departure,
+.calendar-legend .selected {
+    background: #263b40;
+    border-color: #263b40;
+    color: #fff;
+    text-decoration: none;
+}
+
+.availability-calendar .flatpickr-day.inRange {
+    background: #e2e9e7;
+    border-color: #e2e9e7;
+    box-shadow: -5px 0 0 #e2e9e7, 5px 0 0 #e2e9e7;
+}
+
+.calendar-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    list-style: none;
+    padding: 0;
+    font-size: 0.85rem;
+}
+
+.calendar-legend span {
+    display: inline-block;
+    border: 1px solid #978667;
+    border-radius: 3px;
+    padding: 0 0.35rem;
+    margin-right: 0.3rem;
+}
+
+.calendar-help,
+.calendar-status {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0.75rem 0;
+}
+
+.availability-calendar :focus-visible,
+.admin-page :focus-visible {
+    outline: 3px solid #978667;
+    outline-offset: 3px;
+}
+
+.availability-calendar button:disabled,
+.availability-calendar input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.contact-honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}

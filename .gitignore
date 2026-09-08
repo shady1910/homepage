@@ -3,3 +3,7 @@ node_modules/
 compose.yaml
 vendor/
 composer.lock
+private/
+storage/
+config.php
+.availability-test*/
