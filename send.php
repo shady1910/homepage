@@ -149,6 +149,19 @@ if ($kidsCount === false || $kidsCount < 0 || $kidsCount > 99) {
     respond(422, false, 'Bitte gib eine gültige Anzahl Kinder ein.');
 }
 
+$childrenAges = $_POST['children_ages'] ?? [];
+if (!is_array($childrenAges) || count($childrenAges) !== $kidsCount) {
+    respond(422, false, 'Bitte gib für jedes Kind das Alter bei Anreise an.');
+}
+foreach ($childrenAges as &$age) {
+    if (!is_string($age) || !preg_match('/^(?:[0-9]|1[0-7])$/D', $age)) {
+        respond(422, false, 'Das Alter der Kinder muss zwischen 0 und 17 Jahren liegen.');
+    }
+    $age = (int)$age;
+}
+unset($age);
+$childrenAgesText = implode(', ', $childrenAges);
+
 if (!filter_var($email, FILTER_VALIDATE_EMAIL) || mb_strlen($email) > 190) {
     respond(422, false, 'Bitte gib eine gültige E-Mail-Adresse ein.');
 }
@@ -254,6 +267,7 @@ try {
             <p><strong>Abreise:</strong> ' . $safeDeparture . '</p>
             <p><strong>Erwachsene:</strong> ' . $adultCount . '</p>
             <p><strong>Kinder:</strong> ' . $kidsCount . '</p>
+            ' . ($kidsCount > 0 ? '<p><strong>Alter der Kinder bei Anreise (Jahre):</strong> ' . $childrenAgesText . '</p>' : '') . '
             <hr>
             <p><strong>Nachricht:</strong></p>
             <p>' . $safeMessage . '</p>
@@ -269,7 +283,9 @@ try {
         "Anreise: " . $arrivalDate->format('d.m.Y') . "\n" .
         "Abreise: " . $departureDate->format('d.m.Y') . "\n" .
         "Erwachsene: {$adultCount}\n" .
-        "Kinder: {$kidsCount}\n\n" .
+        "Kinder: {$kidsCount}\n" .
+        ($kidsCount > 0 ? "Alter der Kinder bei Anreise (Jahre): {$childrenAgesText}\n" : '') .
+        "\n" .
         "Nachricht:\n{$message}";
 
     $mail->send();

@@ -6,6 +6,37 @@
   const status = document.getElementById('formStatus');
   if (!button || !status) return;
 
+  const kidsCount = document.getElementById('number_kids');
+  const childrenAges = document.getElementById('childrenAges');
+  const updateChildrenAges = () => {
+    const count = kidsCount.valueAsNumber;
+    const target = Number.isInteger(count) && count >= 0 && count <= 99 ? count : 0;
+    while (childrenAges.children.length > target) {
+      childrenAges.lastElementChild.remove();
+    }
+    while (childrenAges.children.length < target) {
+      const number = childrenAges.children.length + 1;
+      const column = document.createElement('div');
+      column.className = 'col-sm-6';
+      column.innerHTML = `
+        <div class="form-floating mb-4">
+          <input class="form-control" type="number" id="child_age_${number}"
+            name="children_ages[]" min="0" max="17" step="1" placeholder="Alter" required>
+          <label for="child_age_${number}">Alter Kind ${number} (Jahre, bei Anreise)</label>
+        </div>`;
+      childrenAges.append(column);
+    }
+  };
+  if (kidsCount && childrenAges) {
+    kidsCount.addEventListener('input', updateChildrenAges);
+    kidsCount.addEventListener('change', updateChildrenAges);
+    form.addEventListener('reset', () => {
+      childrenAges.replaceChildren();
+      setTimeout(updateChildrenAges, 0);
+    });
+    updateChildrenAges();
+  }
+
   const originalButtonLabel = 'value' in button ? button.value : button.textContent;
   const setButtonLabel = (label) => {
     if ('value' in button) {
