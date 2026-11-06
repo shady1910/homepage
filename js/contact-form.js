@@ -28,6 +28,12 @@
       return;
     }
 
+    if (!form.availabilityCalendar || !form.availabilityCalendar.validate()) {
+      status.textContent = 'Bitte wählen Sie einen verfügbaren Reisezeitraum im Kalender.';
+      status.classList.add('error');
+      return;
+    }
+
     button.disabled = true;
     form.setAttribute('aria-busy', 'true');
     setButtonLabel('Wird gesendet …');
@@ -49,6 +55,9 @@
       }
 
       if (!response.ok || data?.success !== true) {
+        if (response.status === 409 || response.status === 503) {
+          await form.availabilityCalendar.reload();
+        }
         throw new Error(data?.message || 'Die Nachricht konnte nicht versendet werden.');
       }
 

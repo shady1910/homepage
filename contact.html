@@ -40,6 +40,8 @@
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/vendors.min.css" rel="stylesheet" />
         <link href="css/custom.css?v=20260904" rel="stylesheet" />
+        <link href="assets/flatpickr/flatpickr.min.css" rel="stylesheet" />
+        <link href="css/availability.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -135,7 +137,8 @@
                             Informationen zur Residenz und zum Buchungsweg.
                         </p>
                         <div id="message-contact"></div>
-                        <form id="contactForm" class="contact-form" novalidate>
+                        <form id="contactForm" class="contact-form" action="/send.php" method="post" novalidate>
+                            <div class="contact-honeypot" aria-hidden="true"><label for="website">Website</label><input type="text" name="website" id="website" tabindex="-1" autocomplete="off" /></div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-floating mb-4">
@@ -164,25 +167,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-floating mb-4">
-                                        <input class="form-control" type="date" name="arrival" id="arrival" required />
-                                        <label for="arrival">Gewünschte Anreise</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating mb-4">
-                                        <input
-                                            class="form-control"
-                                            type="date"
-                                            name="departure"
-                                            id="departure"
-                                            required
-                                        />
-                                        <label for="departure">Gewünschte Abreise</label>
-                                    </div>
-                                </div>
+                            <div id="availabilityCalendar" class="availability-calendar">
+                                <label for="travelRange">Gewünschter Reisezeitraum</label>
+                                <input type="text" id="travelRange" class="form-control" placeholder="Anreise – Abreise" aria-describedby="calendarHelp calendarStatus" disabled />
+                                <input type="hidden" name="arrival" id="arrival" />
+                                <input type="hidden" name="departure" id="departure" />
+                                <p id="calendarHelp" class="calendar-help">Wählen Sie Anreise und Abreise. Der Abreisetag zählt nicht als belegte Nacht. Belegte Nächte sind schraffiert und durchgestrichen.</p>
+                                <ul class="calendar-legend" aria-label="Kalenderlegende">
+                                    <li><span aria-hidden="true">○</span> Verfügbar</li>
+                                    <li><span class="occupied-night" aria-hidden="true">×</span> Belegt</li>
+                                    <li><span class="selected" aria-hidden="true">✓</span> Ausgewählt</li>
+                                </ul>
+                                <p id="calendarStatus" class="calendar-status" role="status" aria-live="polite" tabindex="-1">Verfügbarkeit wird geladen …</p>
+                                <button type="button" class="btn outline" id="resetTravelRange" disabled>Auswahl zurücksetzen</button>
+                                <button type="button" class="btn outline" id="retryAvailability" hidden>Erneut laden</button>
+                                <noscript><p>Bitte aktivieren Sie JavaScript, um einen verfügbaren Reisezeitraum auszuwählen.</p></noscript>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
@@ -322,6 +321,9 @@
         </footer>
 
         <!-- COMMON SCRIPTS -->
+        <script src="assets/flatpickr/flatpickr.min.js" defer></script>
+        <script src="assets/flatpickr/de.js" defer></script>
+        <script src="js/availability-calendar.js" defer></script>
         <script src="js/contact-form.js" defer></script>
         <script src="js/common_functions.js?v=20260819"></script>
     </body>

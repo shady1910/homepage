@@ -74,6 +74,13 @@ if ($allowedHosts !== []) {
     }
 }
 
+/* Reject array-shaped POST values before string conversion (preserves JSON responses). */
+foreach (['name', 'lastname', 'arrival', 'departure', 'number_adult', 'number_kids', 'email', 'phone', 'message', 'privacy', 'website'] as $field) {
+    if (isset($_POST[$field]) && !is_string($_POST[$field])) {
+        respond(422, false, 'Ungültige Eingabe.');
+    }
+}
+
 /* Honeypot */
 $honeypot = trim((string)($_POST['website'] ?? ''));
 if ($honeypot !== '') {
@@ -121,27 +128,15 @@ if ($lastName === '' || mb_strlen($lastName) > 80) {
     respond(422, false, 'Bitte gib einen gültigen Nachnamen ein.');
 }
 
-$parseDate = static function (string $value): ?DateTimeImmutable {
-    $date = DateTimeImmutable::createFromFormat('!Y-m-d', $value);
-    $errors = DateTimeImmutable::getLastErrors();
+require_once __DIR__ . '/includes/availability.php';
 
-    if ($date === false || ($errors !== false && ($errors['warning_count'] > 0 || $errors['error_count'] > 0))) {
-        return null;
-    }
-
-    return $date;
-};
-
-$arrivalDate = $parseDate($arrival);
-$departureDate = $parseDate($departure);
-
-if ($arrivalDate === null || $departureDate === null) {
-    respond(422, false, 'Bitte gib einen gültigen Reisezeitraum an.');
+try {
+    \CasaSol\Availability::period($arrival, $departure);
+} catch (\CasaSol\InvalidPeriod $e) {
+    respond(422, false, $e->getMessage());
 }
-
-if ($departureDate <= $arrivalDate) {
-    respond(422, false, 'Die Abreise muss nach der Anreise liegen.');
-}
+$arrivalDate = \CasaSol\Availability::date($arrival);
+$departureDate = \CasaSol\Availability::date($departure);
 
 $adultCount = filter_var($numberAdults, FILTER_VALIDATE_INT);
 $kidsCount = filter_var($numberKids, FILTER_VALIDATE_INT);
@@ -177,6 +172,16 @@ foreach ([$firstName, $lastName, $email, $phone] as $value) {
     if (preg_match('/[\r\n]/', $value)) {
         respond(422, false, 'Ungültige Eingabe.');
     }
+}
+
+/* An inquiry never reserves nights. Check the latest data before loading PHPMailer. */
+try {
+    if (!(new \CasaSol\Availability())->isAvailable($arrival, $departure)) {
+        respond(409, false, 'Der ausgewählte Reisezeitraum ist leider nicht mehr verfügbar. Bitte wähle einen anderen Zeitraum.');
+    }
+} catch (\Throwable $e) {
+    error_log('Kontaktformular-Verfügbarkeit: ' . $e->getMessage());
+    respond(503, false, 'Die Verfügbarkeit kann derzeit nicht geprüft werden. Bitte versuche es später erneut.');
 }
 
 $autoload = __DIR__ . '/vendor/autoload.php';

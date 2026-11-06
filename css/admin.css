@@ -1,0 +1,23 @@
+.admin-page { margin: 0; background: #faf8f5; color: #263b40; font-family: Montserrat, sans-serif; line-height: 1.6; }
+.admin-page * { box-sizing: border-box; }
+.admin-container { width: min(850px, 100%); margin: 0 auto; padding: 2rem 1rem; }
+.admin-page h1 { font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 1rem; }
+.admin-page h2 { font-size: 1.25rem; margin-top: 0; }
+.admin-page a { color: #263b40; text-underline-offset: 3px; }
+.admin-card { background: #fff; border: 1px solid #ded8cc; border-top: 3px solid #978667; border-radius: 6px; padding: 1.5rem; margin: 1.5rem 0; }
+.admin-page label { display: block; font-weight: 500; margin-bottom: 0.5rem; }
+.admin-page input:not([type="hidden"]) { display: block; width: 100%; min-width: 0; padding: 0.8rem; font: inherit; border: 1px solid #aaa; border-radius: 4px; margin-bottom: 1rem; }
+.admin-page .btn { display: inline-block; padding: 0.7rem 1.2rem; color: #fff; background: #263b40; border: 1px solid #263b40; border-radius: 4px; font: inherit; cursor: pointer; }
+.admin-page .btn.outline { background: transparent; color: #263b40; }
+.admin-page .btn:hover { background: #e8e2d8; color: #263b40; }
+.admin-page :focus-visible { outline: 3px solid #978667; outline-offset: 3px; }
+.admin-dates { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
+.booking-list { margin: 0; padding: 0; list-style: none; }
+.booking-list li { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #ded8cc; }
+.admin-error, .admin-notice { padding: 1rem; border-left: 4px solid #9c3427; background: #fff0ec; }
+.admin-notice { border-color: #39634b; background: #eef6f0; }
+@media (max-width: 480px) {
+    .admin-card { padding: 1rem; }
+    .admin-dates { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .booking-list li { align-items: flex-start; flex-direction: column; }
+}
