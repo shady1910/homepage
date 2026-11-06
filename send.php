@@ -313,7 +313,7 @@ try {
             <div style="font-family:Arial,sans-serif;line-height:1.6;color:#222">
                 <p>Hallo ' . $safeFirstName . ',</p>
                 <p>vielen Dank für deine Nachricht. Wir haben deine Anfrage erhalten und melden uns schnellstmöglich bei dir.</p>
-                <p>Viele Grüße<br><img src="cid:confirmation-logo" alt="Sonja &amp; Holger" style="display:block;max-width:100%;height:auto;margin-top:8px"></p>
+                <p>Viele Grüße<br>Sonja &amp; Holger<br><img src="cid:confirmation-logo" alt="Sonja &amp; Holger" width="95" style="display:block;width:95px;max-width:100%;height:auto;margin-top:8px"></p>
             </div>
         ';
 
