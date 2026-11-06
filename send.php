@@ -157,8 +157,8 @@ if ($phone === '' || mb_strlen($phone) > 50) {
     respond(422, false, 'Bitte gib eine gültige Telefonnummer ein.');
 }
 
-if ($message === '' || mb_strlen($message) > 5000) {
-    respond(422, false, 'Bitte gib eine Nachricht mit maximal 5.000 Zeichen ein.');
+if (mb_strlen($message) > 5000) {
+    respond(422, false, 'Die Nachricht darf maximal 5.000 Zeichen enthalten.');
 }
 
 if (!$privacyAccepted) {
@@ -301,19 +301,26 @@ try {
         $confirmation->addAddress($email, $fullName);
         $confirmation->Subject = (string)($config['confirmation_subject'] ?? 'Vielen Dank für deine Anfrage');
         $confirmation->isHTML(true);
+        $confirmation->addEmbeddedImage(
+            __DIR__ . '/img/logo_sticky.png',
+            'confirmation-logo',
+            'logo_sticky.png',
+            'base64',
+            'image/png'
+        );
 
         $confirmation->Body = '
             <div style="font-family:Arial,sans-serif;line-height:1.6;color:#222">
                 <p>Hallo ' . $safeFirstName . ',</p>
                 <p>vielen Dank für deine Nachricht. Wir haben deine Anfrage erhalten und melden uns schnellstmöglich bei dir.</p>
-                <p>Viele Grüße<br>' . htmlspecialchars((string)$config['from_name'], ENT_QUOTES, 'UTF-8') . '</p>
+                <p>Viele Grüße<br><img src="cid:confirmation-logo" alt="Sonja &amp; Holger" style="display:block;max-width:100%;height:auto;margin-top:8px"></p>
             </div>
         ';
 
         $confirmation->AltBody =
             "Hallo {$firstName},\n\n" .
             "vielen Dank für deine Nachricht. Wir haben deine Anfrage erhalten und melden uns schnellstmöglich bei dir.\n\n" .
-            "Viele Grüße\n" . (string)$config['from_name'];
+            "Viele Grüße\nSonja & Holger";
 
         $confirmation->send();
     }
