@@ -409,3 +409,50 @@ body.menu-open {
 .error_page {
     height: 100vh;
 }
+
+.location-map {
+    overflow: hidden;
+    border: 1px solid #e9e3d8;
+    border-radius: 20px;
+    background: #faf8f5;
+}
+
+.location-map__intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: clamp(24px, 4vw, 48px);
+}
+
+.location-map__intro > div {
+    flex: 1 1 400px;
+    min-width: 0;
+}
+
+.location-map__intro address {
+    margin-bottom: 0;
+    font-style: normal;
+    line-height: 1.8;
+}
+
+.location-map__intro .btn {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.4;
+}
+
+.location-map__frame {
+    display: block;
+    width: 100%;
+    height: clamp(320px, 55vw, 480px);
+    border: 0;
+}
+
+.location-map__caption {
+    margin: 0;
+    padding: 14px 24px;
+    color: #555;
+    font-size: 0.875rem;
+}
