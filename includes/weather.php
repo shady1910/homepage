@@ -8,6 +8,17 @@ const LATITUDE = '37.1032';
 const LONGITUDE = '-8.4681';
 const MET_AGENT = 'CasaSolFerias/1.0 (https://casasolferias.com; info@casasolferias.com)';
 
+function metEnabled(): bool
+{
+    static $enabled;
+    if ($enabled === null) {
+        $configFile = __DIR__ . '/../../private/config.php';
+        $config = @is_file($configFile) && is_readable($configFile) ? require $configFile : [];
+        $enabled = is_array($config) && ($config['weather_met_enabled'] ?? false) === true;
+    }
+    return $enabled;
+}
+
 function readJson(string $path): array
 {
     $json = @file_get_contents($path);
@@ -78,7 +89,7 @@ function cachedMet(
     int $maxAge,
     string $expectedField
 ): array {
-    if (getenv('CASA_WEATHER_MET_ENABLED') !== '1' || !function_exists('curl_init')) {
+    if (!metEnabled() || !function_exists('curl_init')) {
         return [];
     }
     $file = $storage . '/weather-' . $name . '.json';
