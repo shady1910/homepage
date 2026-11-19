@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../includes/weather.php';
 
-use function CasaSol\Weather\{cachedMet, seaTemperature, weatherSummary};
+use function CasaSol\Weather\{cachedMet, weatherSummary};
 
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
@@ -33,5 +33,4 @@ echo json_encode(weatherSummary($forecastData, $now) + [
         'rise' => $sun['sunrise']['time'] ?? null,
         'set' => $sun['sunset']['time'] ?? null,
     ] : null,
-    'sea' => seaTemperature($storage, $now->getTimestamp()),
 ], JSON_THROW_ON_ERROR);

@@ -209,15 +209,3 @@ function weatherSummary(array $data, \DateTimeImmutable $now): array
     }
     return ['current' => $nearest, 'forecast' => $forecast];
 }
-
-function seaTemperature(string $storage, int $now): ?array
-{
-    $sample = readJson($storage . '/sea-temperature.json');
-    $value = numericValue($sample['temperature'] ?? null);
-    $time = is_string($sample['time'] ?? null) ? strtotime($sample['time']) : false;
-    if ($value === null || $value < 0 || $value > 40 || $time === false
-        || $time > $now || $now - $time > 4 * 86400) {
-        return null;
-    }
-    return ['time' => gmdate(DATE_ATOM, $time), 'temperature' => $value];
-}

@@ -126,7 +126,7 @@
         return item;
     }
 
-    function render({ current, forecast, sun, sea }) {
+    function render({ current, forecast, sun }) {
         const air = degrees(current?.temperature);
         const [condition, icon] = describe(current?.symbol);
         fields.current.hidden = air === null && !icon;
@@ -140,7 +140,6 @@
         fields.valid.textContent = date && time ? 'Vorhersage für ' + date + ', ' + time + ' Uhr' : '';
 
         const metrics = {
-            sea: degrees(sea?.temperature),
             wind: rounded(current?.wind, 'km/h'),
             humidity: rounded(current?.humidity, '%'),
             rise: formatTime(sun?.rise, localTime),
@@ -150,9 +149,6 @@
         for (const [field, value] of Object.entries(metrics)) {
             fields[field].textContent = value ?? 'Nicht verfügbar';
         }
-        const seaDate = formatTime(sea?.time, localDate);
-        fields.seaDate.hidden = metrics.sea === null || !seaDate;
-        fields.seaDate.textContent = seaDate ? 'Stand ' + seaDate : '';
         fields.overview.hidden = fields.current.hidden && Object.values(metrics).every((value) => value === null);
 
         const days = Array.isArray(forecast) ? forecast.slice(0, 3).map(dayCard).filter(Boolean) : [];
