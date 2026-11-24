@@ -101,18 +101,15 @@
 }
 
 .room-gallery {
-    column-count: 3;
-    column-gap: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
 }
 
 .room-gallery__item {
     display: block;
-    width: 100%;
-    margin: 0 0 18px;
-    padding: 0;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
-    break-inside: avoid;
-    border: 0;
     border-radius: 3px;
     background: #eeeae3;
     cursor: zoom-in;
@@ -121,7 +118,8 @@
 .room-gallery__item img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     transition:
         transform 0.4s ease,
         opacity 0.4s ease;
@@ -237,7 +235,7 @@ body.menu-open {
 
 @media (max-width: 991px) {
     .room-gallery {
-        column-count: 2;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
@@ -256,12 +254,8 @@ body.menu-open {
     }
 
     .room-gallery {
-        column-count: 1;
-        column-gap: 12px;
-    }
-
-    .room-gallery__item {
-        margin-bottom: 12px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
     }
 }
 
