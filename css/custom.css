@@ -138,93 +138,6 @@
     outline-offset: 3px;
 }
 
-.room-lightbox {
-    display: flex;
-    width: auto;
-    max-width: none;
-    margin: auto;
-    padding: 0;
-    overflow: visible;
-    border: 0;
-    background: transparent;
-}
-
-.room-lightbox::backdrop {
-    background: rgba(16, 15, 13, 0.92);
-    backdrop-filter: blur(3px);
-}
-
-.room-lightbox__image {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: calc(100vw - 48px);
-    max-height: calc(100vh - 48px);
-    object-fit: contain;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-    margin: auto;
-}
-
-.room-lightbox__close {
-    position: absolute;
-    z-index: 1;
-    top: 10px;
-    right: 10px;
-    display: grid;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    place-items: center;
-    border: 0;
-    border-radius: 50%;
-    background: rgba(16, 15, 13, 0.75);
-    color: #fff;
-    font-size: 32px;
-    line-height: 1;
-    cursor: pointer;
-}
-
-.room-lightbox__close:hover,
-.room-lightbox__close:focus-visible {
-    background: #978667;
-}
-
-.room-lightbox__navigation {
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    display: grid;
-    width: 48px;
-    height: 48px;
-    padding: 0;
-    place-items: center;
-    transform: translateY(-50%);
-    border: 0;
-    border-radius: 50%;
-    background: rgba(16, 15, 13, 0.75);
-    color: #fff;
-    font-size: 38px;
-    line-height: 1;
-    cursor: pointer;
-}
-
-.room-lightbox__previous {
-    left: 12px;
-}
-
-.room-lightbox__next {
-    right: 12px;
-}
-
-.room-lightbox__navigation:hover,
-.room-lightbox__navigation:focus-visible {
-    background: #978667;
-}
-
-body.room-lightbox-open {
-    overflow: hidden;
-}
-
 .room-feature-image {
     position: relative;
     display: block;
@@ -349,24 +262,6 @@ body.menu-open {
 
     .room-gallery__item {
         margin-bottom: 12px;
-    }
-
-    .room-lightbox__image {
-        max-width: calc(100vw - 24px);
-        max-height: calc(100vh - 24px);
-    }
-
-    .room-lightbox__navigation {
-        width: 42px;
-        height: 42px;
-    }
-
-    .room-lightbox__previous {
-        left: 6px;
-    }
-
-    .room-lightbox__next {
-        right: 6px;
     }
 }
 
