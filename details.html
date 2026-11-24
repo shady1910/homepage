@@ -39,7 +39,10 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/vendors.min.css" rel="stylesheet" />
-        <link href="css/custom.css?v=20260904" rel="stylesheet" />
+        <link href="assets/lightgallery-3.0.0/css/lightgallery.css" rel="stylesheet" />
+        <link href="assets/lightgallery-3.0.0/css/lg-thumbnail.css" rel="stylesheet" />
+        <link href="assets/lightgallery-3.0.0/css/lg-zoom.css" rel="stylesheet" />
+        <link href="css/custom.css?v=20261124-2" rel="stylesheet" />
     </head>
 
     <body>
@@ -85,7 +88,7 @@
             </div>
         </header>
 
-        <main>
+        <main id="residence-content">
             <div class="hero full-height jarallax" data-jarallax data-speed="0.2">
                 <img
                     class="jarallax-img kenburns"
@@ -171,7 +174,10 @@
                             <div class="col-xl-8">
                                 <div class="room-feature-image kenburns rounded-img">
                                     <div class="item">
-                                        <a class="room-feature-lightbox" href="img/rooms/bedroom2.jpg"
+                                        <a
+                                            class="room-feature-lightbox"
+                                            href="img/rooms/bedroom2.jpg"
+                                            data-lg-size="1670-942"
                                             ><img
                                                 src="img/rooms/bedroom2.jpg"
                                                 alt="Schlafzimmer mit Kingsize-Bett und direktem Zugang zur Terrasse"
@@ -203,7 +209,7 @@
                             <div class="col-xl-8 order-xl-2">
                                 <div class="room-feature-image kenburns rounded-img">
                                     <div class="item">
-                                        <a class="room-feature-lightbox" href="img/rooms/2.jpg"
+                                        <a class="room-feature-lightbox" href="img/rooms/2.jpg" data-lg-size="1670-942"
                                             ><img
                                                 src="img/rooms/2.jpg"
                                                 alt="Schlafzimmer mit Blick ins Grüne und Kingsize-Bett"
@@ -252,7 +258,7 @@
                             <div class="col-xl-8">
                                 <div class="room-feature-image kenburns rounded-img">
                                     <div class="item">
-                                        <a class="room-feature-lightbox" href="img/rooms/3.jpg"
+                                        <a class="room-feature-lightbox" href="img/rooms/3.jpg" data-lg-size="1536-1024"
                                             ><img
                                                 src="img/rooms/3.jpg"
                                                 alt="Offene Küche und Essbereich mit Zugang zur Terrasse"
@@ -278,10 +284,13 @@
                             <div class="col-xl-8 order-xl-2">
                                 <div class="room-feature-image kenburns rounded-img">
                                     <div class="item">
-                                        <a class="room-feature-lightbox" href="img/rooms/kitchen-1.jpg"
+                                        <a
+                                            class="room-feature-lightbox"
+                                            href="img/rooms/kitchen-1.jpg"
+                                            data-lg-size="4000-2252"
                                             ><img
                                                 src="img/rooms/kitchen-1.jpg"
-                                                alt="Beleuchteter Pool und Terrasse der Casa Sol Férias am Abend"
+                                                alt="Offener Küchen- und Wohnbereich mit stimmungsvoller Beleuchtung"
                                         /></a>
                                     </div>
                                 </div>
@@ -320,7 +329,10 @@
                             <div class="col-xl-8">
                                 <div class="room-feature-image kenburns rounded-img">
                                     <div class="item">
-                                        <a class="room-feature-lightbox" href="img/rooms/outdoor_palm.jpeg"
+                                        <a
+                                            class="room-feature-lightbox"
+                                            href="img/rooms/outdoor_palm.jpeg"
+                                            data-lg-size="3340-1883"
                                             ><img
                                                 src="img/rooms/outdoor_palm.jpeg"
                                                 alt="Privater Poolbereich mit Palmen, Sonnenliegen und Garten"
@@ -346,7 +358,10 @@
                             <div class="col-xl-8 order-xl-2">
                                 <div class="room-feature-image kenburns rounded-img">
                                     <div class="item">
-                                        <a class="room-feature-lightbox" href="img/rooms/outdoor night.jpeg"
+                                        <a
+                                            class="room-feature-lightbox"
+                                            href="img/rooms/outdoor night.jpeg"
+                                            data-lg-size="1670-942"
                                             ><img
                                                 src="img/rooms/outdoor night.jpeg"
                                                 alt="Beleuchteter Pool und Terrasse der Casa Sol Férias am Abend"
@@ -388,7 +403,10 @@
                             <div class="col-xl-8">
                                 <div class="room-feature-image kenburns rounded-img">
                                     <div class="item">
-                                        <a class="room-feature-lightbox" href="img/rooms/Pool-1.jpeg"
+                                        <a
+                                            class="room-feature-lightbox"
+                                            href="img/rooms/Pool-1.jpeg"
+                                            data-lg-size="2000-1126"
                                             ><img
                                                 src="img/rooms/Pool-1.jpeg"
                                                 alt="Privater Poolbereich mit Palmen, Sonnenliegen und Garten"
@@ -530,11 +548,10 @@
                         </div>
 
                         <div class="room-gallery" aria-label="Bildergalerie der Residenz">
-                            <button
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/living.jpeg"
-                                data-alt="Heller Wohnbereich der Casa Sol Férias"
+                                href="img/rooms/living.jpeg"
+                                data-lg-size="1441-941"
                                 aria-label="Wohnbereich in Originalgröße anzeigen"
                             >
                                 <img
@@ -544,12 +561,11 @@
                                     alt="Heller Wohnbereich der Casa Sol Férias"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/bath.jpeg"
-                                data-alt="Badezimmer mit Natursteinoberflächen"
+                                href="img/rooms/bath.jpeg"
+                                data-lg-size="1086-1448"
                                 aria-label="Badezimmer in Originalgröße anzeigen"
                             >
                                 <img
@@ -559,57 +575,53 @@
                                     alt="Badezimmer mit Natursteinoberflächen"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/1.jpg"
-                                data-alt="Wohn- und Essbereich mit Blick nach draußen"
-                                aria-label="Wohn- und Essbereich in Originalgröße anzeigen"
+                                href="img/rooms/1.jpg"
+                                data-lg-size="3340-1881"
+                                aria-label="Außenansicht in Originalgröße anzeigen"
                             >
                                 <img
                                     src="img/rooms/1.jpg"
-                                    width="1670"
-                                    height="941"
-                                    alt="Wohn- und Essbereich mit Blick nach draußen"
+                                    width="3340"
+                                    height="1881"
+                                    alt="Außenansicht der Casa Sol Férias mit Pool"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/outdoor.jpeg"
-                                data-alt="Pool und Terrasse der Residenz"
-                                aria-label="Pool und Terrasse in Originalgröße anzeigen"
+                                href="img/rooms/outdoor.jpeg"
+                                data-lg-size="941-1456"
+                                aria-label="Terrasse in Originalgröße anzeigen"
                             >
                                 <img
                                     src="img/rooms/outdoor.jpeg"
                                     width="941"
                                     height="1456"
-                                    alt="Pool und Terrasse der Residenz"
+                                    alt="Gedeckter Esstisch auf der Terrasse"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/2.jpg"
-                                data-alt="Offener Wohnbereich der Residenz"
-                                aria-label="Offenen Wohnbereich in Originalgröße anzeigen"
+                                href="img/rooms/2.jpg"
+                                data-lg-size="1670-942"
+                                aria-label="Schlafzimmer mit Gartenblick in Originalgröße anzeigen"
                             >
                                 <img
                                     src="img/rooms/2.jpg"
                                     width="1670"
                                     height="942"
-                                    alt="Offener Wohnbereich der Residenz"
+                                    alt="Schlafzimmer mit Blick ins Grüne und Kingsize-Bett"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/bedroom.jpeg"
-                                data-alt="Schlafzimmer mit Doppelbett"
+                                href="img/rooms/bedroom.jpeg"
+                                data-lg-size="941-1671"
                                 aria-label="Schlafzimmer in Originalgröße anzeigen"
                             >
                                 <img
@@ -619,12 +631,11 @@
                                     alt="Schlafzimmer mit Doppelbett"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/3.jpg"
-                                data-alt="Essbereich mit direktem Zugang zur Terrasse"
+                                href="img/rooms/3.jpg"
+                                data-lg-size="1536-1024"
                                 aria-label="Essbereich in Originalgröße anzeigen"
                             >
                                 <img
@@ -634,12 +645,11 @@
                                     alt="Essbereich mit direktem Zugang zur Terrasse"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/bath2.jpeg"
-                                data-alt="Modernes Badezimmer der Residenz"
+                                href="img/rooms/bath2.jpeg"
+                                data-lg-size="941-1672"
                                 aria-label="Modernes Badezimmer in Originalgröße anzeigen"
                             >
                                 <img
@@ -649,12 +659,11 @@
                                     alt="Modernes Badezimmer der Residenz"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/Mediterraner-Poolhof.png"
-                                data-alt="Mediterraner-Poolhof"
+                                href="img/rooms/Mediterraner-Poolhof.png"
+                                data-lg-size="941-1672"
                                 aria-label="Mediterraner-Poolhof"
                             >
                                 <img
@@ -664,27 +673,25 @@
                                     alt="Mediterraner-Poolhof"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/outdoor_palm.jpeg"
-                                data-alt="Poolbereich mit Palmen"
+                                href="img/rooms/outdoor_palm.jpeg"
+                                data-lg-size="3340-1883"
                                 aria-label="Poolbereich mit Palmen in Originalgröße anzeigen"
                             >
                                 <img
                                     src="img/rooms/outdoor_palm.jpeg"
-                                    width="1670"
-                                    height="942"
+                                    width="3340"
+                                    height="1883"
                                     alt="Poolbereich mit Palmen"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/aussicht.jpg"
-                                data-alt="Aussicht von der Casa Sol Férias"
+                                href="img/rooms/aussicht.jpg"
+                                data-lg-size="2040-1536"
                                 aria-label="Aussicht in Originalgröße anzeigen"
                             >
                                 <img
@@ -694,12 +701,11 @@
                                     alt="Aussicht von der Casa Sol Férias"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/outdoor night.jpeg"
-                                data-alt="Beleuchteter Poolbereich am Abend"
+                                href="img/rooms/outdoor night.jpeg"
+                                data-lg-size="1670-942"
                                 aria-label="Poolbereich am Abend in Originalgröße anzeigen"
                             >
                                 <img
@@ -709,12 +715,11 @@
                                     alt="Beleuchteter Poolbereich am Abend"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/parking.jpeg"
-                                data-alt="Parkplatz der Casa Sol Férias"
+                                href="img/rooms/parking.jpeg"
+                                data-lg-size="1671-941"
                                 aria-label="Parkplatz in Originalgröße anzeigen"
                             >
                                 <img
@@ -724,44 +729,26 @@
                                     alt="Parkplatz der Casa Sol Férias"
                                     loading="lazy"
                                 />
-                            </button>
-                            <button
+                            </a>
+                            <a
                                 class="room-gallery__item"
-                                type="button"
-                                data-full="img/rooms/jacuzzi.jpg"
-                                data-alt="Jacuzzi der Casa Sol Férias"
+                                href="img/rooms/jacuzzi.jpg"
+                                data-lg-size="896-1045"
                                 aria-label="Jacuzzi in Originalgröße anzeigen"
                             >
                                 <img
                                     src="img/rooms/jacuzzi.jpg"
-                                    width="1671"
-                                    height="941"
+                                    width="896"
+                                    height="1045"
                                     alt="Jacuzzi der Casa Sol Férias"
                                     loading="lazy"
                                 />
-                            </button>
+                            </a>
                         </div>
                     </section>
                 </div>
             </div>
         </main>
-
-        <dialog class="room-lightbox" id="room-lightbox" aria-label="Vergrößerte Bildansicht">
-            <button class="room-lightbox__close" type="button" aria-label="Bildansicht schließen">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <button
-                class="room-lightbox__navigation room-lightbox__previous"
-                type="button"
-                aria-label="Vorheriges Bild"
-            >
-                <span aria-hidden="true">&#8249;</span>
-            </button>
-            <img class="room-lightbox__image" src="" alt="Vergrößerte Ansicht eines Bildes der Casa Sol Férias" />
-            <button class="room-lightbox__navigation room-lightbox__next" type="button" aria-label="Nächstes Bild">
-                <span aria-hidden="true">&#8250;</span>
-            </button>
-        </dialog>
 
         <footer class="revealed">
             <div class="footer_bg">
@@ -806,6 +793,9 @@
         </footer>
 
         <script src="js/common_functions.js?v=20260819"></script>
-        <script src="js/room-gallery.js?v=20260819"></script>
+        <script src="assets/lightgallery-3.0.0/lightgallery.min.js" defer></script>
+        <script src="assets/lightgallery-3.0.0/plugins/thumbnail/lg-thumbnail.umd.js" defer></script>
+        <script src="assets/lightgallery-3.0.0/plugins/zoom/lg-zoom.umd.js" defer></script>
+        <script src="js/room-gallery.js?v=20261124" defer></script>
     </body>
 </html>
